@@ -62,7 +62,7 @@ const insertSchema = createInsertSchema(todos, {
 })
 
 export const POST = createRoute(zValidator('form', insertSchema), async (c) => {
-  const { description } = c.req.valid('form')
-  await c.var.db.insert(todos).values({ description })
+  const data = c.req.valid('form')
+  await c.var.db.insert(todos).values(data)
   return c.redirect('/')
 })
