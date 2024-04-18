@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "vite",
     "migration:generate": "drizzle-kit generate:sqlite",
-    "migration:apply": "wrangler d1 migrations apply d1-todo --local",
+    "migration:apply:local": "wrangler d1 migrations apply d1-todo --local",
+    "migration:apply:remote": "wrangler d1 migrations apply d1-todo --remote",
     "build": "vite build --mode client && vite build",
     "preview": "wrangler pages dev ./dist",
     "deploy": "$npm_execpath run build && wrangler pages deploy ./dist"

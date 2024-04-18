@@ -11,7 +11,51 @@ A starter project showing how you can integrate [Drizzle ORM](https://orm.drizzl
 
 ## Installation
 
+### 0. Clone the template and install all dependencies
+
+```sh
+git clone git@github.com:yusukebe/cloudflare-d1-drizzle-honox-starter.git starter
+cd starter
+npm install
+```
+
+### 1. Create a new D1 database using Wrangler
+
+```sh
+npx wrangler@latest d1 create d1-todo
+```
+
+_Note that if you haven't yet used Wrangler, you will be prompted to login to Cloudflare._
+
+Copy the output of this command, which is structured TOML configuration, into your `wrangler.toml`.
+
+### 2. Create a new migration file
+
+```sh
+npm run migration:generate
+```
+
+### 3. Apply the migration to your local database
+
+```sh
+npm run migration:apply:local
+```
+
+### 4. When you're ready, deploy your application
+
+```sh
+npm run deploy
+```
+
+### 5. Once you've deployed your application, you can apply the migrations to your remote (production) D1 database
+
+```sh
+npm run migration:apply:remote
+```
+
 ## Prisma Version
+
+You can see the starter using [Prisma](https://www.prisma.io) instead of Drizzle ORM:
 
 - https://github.com/kristianfreeman/cloudflare-d1-prisma-honox-starter
 
